@@ -11,3 +11,8 @@ Este repositório documenta detalhadamente as etapas referentes ao FRONT-END do 
 
 ![Diagrama do Multiplexador](./block_diagrams/mux_block_diagram.png)
 *Figura 1: Multiplexador 2:1 com entradas in0, in1, seletor sel e saída mux_out*
+
+## 3. RTL Design 
+
+- Nessa etapa, foi criado o arquivo multiplexor.v, responsável por descrever o comportamento do multiplexador (mux => multiplexor.v). 
+
