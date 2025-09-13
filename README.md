@@ -25,7 +25,13 @@ Este repositório documenta detalhadamente as etapas referentes ao FRONT-END do 
 
 ## 5. Síntese: 
 
-### 5.1 Síntese através do Quartus II:
-### 5.2 Síntese através do Genus: 
+### 5.1 Síntese com Quartus II:
+- 1° Passo: Verificar RTL via Xcelium/SimVision;
+- 2° Passo: Prosseguir com a síntese+implementação no Quartus II.
+  
+### 5.2 Síntese com Genus: 
+- 1° Passo: Síntese no Genus- Seu RTL é sintetizado para um netlist de portas lógicas genéricas (independente de tecnologia);
+- 2° Passo: Preparação para o Quartus - O netlist e todos os arquivos de apoio são exportados;
+- 3° Passo: Implementação no Quartus - O Quartus importa o netlist, mapeia essas portas genéricas para os primitivos específicos do Cyclone IV (LUTs, FFs, etc.), realiza o place-and-route e gera o arquivo de programação (.sof).
 
 
