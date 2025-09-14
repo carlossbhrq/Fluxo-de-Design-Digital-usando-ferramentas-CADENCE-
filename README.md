@@ -9,7 +9,7 @@ Este repositório documenta detalhadamente as etapas referentes ao FRONT-END do 
 
 ## 2. Projeto de arquitetura: 
 
-![Diagrama do Multiplexador]([./block_diagrams/mux_block_diagram.png](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/f5df3389d629a58681ff6d4ad96bcdfaf00b99d3/MUX.png))
+![image alt]()
 *Figura 1: Multiplexador 2:1 com entradas in0, in1, seletor sel e saída mux_out*
 
 ## 3. Projeto RTL:
