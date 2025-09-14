@@ -1,5 +1,5 @@
 # Fluxo-de-Design-Digital-usando-ferramentas-CADENCE
-Este repositório documenta detalhadamente as etapas referentes ao FRONT-END do fluxo de design digital utilizando as ferramentas CADENCE para um multiplexador. 
+Este repositório documenta detalhadamente as etapas referentes ao fluxo de design digital utilizando as ferramentas CADENCE para um multiplexador. 
 
 ## 1. Especificações: 
 
