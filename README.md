@@ -106,12 +106,17 @@ Nesta seção, deve-se importar o arquivo netlist, timing constraints, libraries
   a.**set_db init_read_netlist_files ../physical_design/multiplexor_netlist.v**;
   b.**set_db init_lef_files {..lef/gsclib045_tech.lef ../lef/gsclib045_macro.lef}**;
   c.**set_db init_power_nets VDD**;
-  d.**set_db init_ground_net VSS**;
+  d.**set_db init_ground_nets VSS**;
   e.**set_db init_mmmc_files multiplexor.view**;
   f.**read_physical -lefs {../lef/gsclib045_tech.lef ../lef/gsclib045_macro.lef}**;
   g.**read_netlist ../physical_design/multiplexor_netlist.v -top multiplexor**;
   f.**init_design**.
-4. Por fim, podemos visualizar os resultados da importação do projeto no GUI do Innovus, selecionando **Floorplan view**.
+4. Por fim, podemos visualizar os resultados da importação do projeto no GUI do Innovus, selecionando **Floorplan view** e depois **Tools - Design Browser**.
+
+
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/880b1cd1a81698edeabb2c25b08f783f6b561186/physical_design/07.png)
+
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/880b1cd1a81698edeabb2c25b08f783f6b561186/physical_design/08.png)
 
 
 
@@ -132,8 +137,31 @@ O arquivo multiplexor.view (diretório physical_design) contém ponteiros para b
 - Tecnologia QRC para extração RC
 
 
-### 5.1 Floorplannning the Design 
+### 5.2 Floorplannning the Design 
 
+**Parâmetros utilizados:**
+- **Aspect Ratio:** 1.0 (forma quadrada)
+- **Utilization:** 40% (baixa para facilitar routing)
+- **Margens:** 2.5μm (suficiente para pins e power)
+
+1. Para formatarmos o floorplan com as especificações acima, no GUI, selecionamos **Floorplan -> Specify Floorplan**;
+2. Na janela **Specify Floorplan**, preencha os dados conforme a imagem abaixo e clique em **OK**.
+
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/25bce1ec51ff808113b88225592119e61db854c6/physical_design/09.png)
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/25bce1ec51ff808113b88225592119e61db854c6/physical_design/10.png)
+
+
+### 5.3 Pin Assignment 
+
+Na seção, colocam-se pinos de entrada-saída (E/S) ao redor do bloco. 
+1. Para posicionar todos os pinos E/S, utilizaremos o arquivo **mux_pins.io**, que contém a configuração física dos pinos do design. Assim, faz-se a leitura do arquivo através do comando **read_io_file mux_pins.io**;
+
+2. Em seguida, atualiza-se a tela usando o botão de redesenho e visualize o posicionamento dos pinos na janela de design.
+
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/0cd3799d5a407d1e64bc80243b30647da71620d4/physical_design/11.png)
+
+
+### 5.3 Power Plannning
 
 
 
