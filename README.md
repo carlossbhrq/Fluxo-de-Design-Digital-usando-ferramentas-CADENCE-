@@ -82,11 +82,62 @@ Função: Define a carga capacitiva que a saída do circuito deve acionar.
 | `report_power_MUX.rpt` | Estimativa de consumo de potência |
 | `report_qor_MUX.rpt` | Relatório de Quality of Results (QoR) |
 
-![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/22f04cabce257a526264cb800d31cf1b0474e4be/MUX.png)
+
+
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/a3ce85d9a5731300e2d8bd1477ca33f4c9792ef5/S%C3%ADntese-L%C3%B3gica/05.png)
 
 *Figura: Print do terminal do Genus pós-síntese.*
 
 
-3. Para fechar o Genus, utiliza-se o comando **exit**. 
+
+3. Para fechar o Genus, utiliza-se o comando **exit**.
+
+
+## 5. Implementação: 
+
+
+### 5.1 Importando o projeto. 
+
+Nesta seção, deve-se importar o arquivo netlist, timing constraints, libraries e demais arquivos necessários para implementação física do projeto via Innovus. 
+
+1. Dentro do diretório ***physical_design***, abre-se o terminal de comando;
+2. Para inicializar o software Innovus, utiliza-se o comando **innovus -stylus**;
+3. Após isso, via terminal, faremos a importação de todos os arquivos necessários para iniciarmos o projeto.
+  a.**set_db init_read_netlist_files ../physical_design/multiplexor_netlist.v**;
+  b.**set_db init_lef_files {..lef/gsclib045_tech.lef ../lef/gsclib045_macro.lef}**;
+  c.**set_db init_power_nets VDD**;
+  d.**set_db init_ground_net VSS**;
+  e.**set_db init_mmmc_files multiplexor.view**;
+  f.**read_physical -lefs {../lef/gsclib045_tech.lef ../lef/gsclib045_macro.lef}**;
+  g.**read_netlist ../physical_design/multiplexor_netlist.v -top multiplexor**;
+  f.**init_design**.
+4. Por fim, podemos visualizar os resultados da importação do projeto no GUI do Innovus, selecionando **Floorplan view**.
+
+
+
+#### 5.1.1 MMMC View Definition file. 
+
+O arquivo multiplexor.view (diretório physical_design) contém ponteiros para bibliotecas de tempo, arquivos de tecnologia para extração e arquivos de restrições SDC, definindo as condições de análise para:
+
+##### **Analysis Views:**
+- **WC (Worst-Case):** Setup timing analysis
+- **BC (Best-Case):** Hold timing analysis
+
+##### **Bibliotecas Utilizadas:**
+- `slow_vdd1v0_basicCells.lib` - Pior caso de timing
+- `fast_vdd1v0_basicCells.lib` - Melhor caso de timing
+
+##### **Configuração de Parasitas:**
+- Tabela de capacitâncias típicas do GPDK045
+- Tecnologia QRC para extração RC
+
+
+### 5.1 Floorplannning the Design 
+
+
+
+
+
+
 
 
