@@ -192,6 +192,7 @@ Nesta etapa, criam-se os anéis de alimentação (power rings) e trilhas (stripe
 8. Para gerar os **power stripes**, clique em **OK**.
 
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/c3064692ab2dc14d3c327489912a70ba855bc8bc/physical_design/15.png)
+
 Observe que as power stripes e as vias que conectam os rings às stripes são criadas. 
 
 9. Salvar o floorplan;
@@ -201,6 +202,54 @@ Observe que as power stripes e as vias que conectam os rings às stripes são cr
 
 
 ### 5.4 Creating Power Rails with Special Route
+
+Neste tópico, iremos conectar os pinos de alimentação das células padrão (standard cells) à malha de power global, criando os "power rails" que distribuem VDD/VSS diretamente para cada célula.
+
+1. Antes do routing, é necessário associar os nets globais VDD/VSS aos pins de power das standard cells.
+- connect_global_net VDD -type pg_pin -pin_base_name VDD -inst_base_name *
+- connect_global_net VSS -type pg_pin -pin_base_name VSS -inst_base_name *
+
+2. Acesso à Ferramenta Special Route.
+-Menu: Route → Special Route
+
+3. Configuração dos Nets
+- No campo Net(s), clique no ícone de pasta 📁;
+- No painel Possible Nets, selecione VDD e VSS (Shift + Click);
+- Clique em Add para mover para Chosen Nets;
+- Clique em OK para confirmar.
+
+4. Configuração **SRoute**
+- Desmarque todas as opções, exceto **Follow Pins**;
+- Isso irá criar power rails seguindo as rows das standard cells.
+
+5. Configuração da aba Via Generation
+- Clique na aba **Via Generation**; 
+- Em **Make Via Connections To**, selecione **Stripe**
+- Em **Specify Layer Ranges**, mantenha as configurações padrão. 
+- Clique **OK** para confirmar.
+
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/d3cdc36e4bcceb8f5129f924154406adb6c7bfb1/physical_design/16.png)
+
+Figura: O Special Route finaliza a distribuição de alimentação, conectando cada célula individual à malha de power global criada anteriormente.
+
+
+### 5.4 Running Placement Optimization
+
+Neste tópico, iremos posicionar fisicamente todas as células padrão (standard cells) dentro do core do chip, otimizando para timing, área, potência e congestionamento.
+
+1. Placement para Design sem DFT 
+- Para designs sem scan chains como o presente projeto, utilizamos o seguinte comando: **place_opt_design**.
+
+2. O que o place_opt_design realiza?
+- Placement Inicial - Posicionamento global das células;
+- Otimização de Timing - Ajuste para fechar setup/hold time;
+- Otimização de Área - Minimização da área utilizada;
+- Otimização de Potência - Redução de consumo.
+
+
+
+
+
 
 
 
