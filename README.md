@@ -239,7 +239,6 @@ Figura: O Special Route finaliza a distribuição de alimentação, conectando c
 Neste tópico, iremos posicionar fisicamente todas as células padrão (standard cells) dentro do core do chip, otimizando para timing, área, potência e congestionamento.
 
 1. Placement para Design sem DFT 
-- **read_mmmc multiplexor.view**;
 - **place_opt_design**.
 
 2. O que o place_opt_design realiza?
