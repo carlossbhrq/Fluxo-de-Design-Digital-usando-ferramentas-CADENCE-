@@ -248,7 +248,7 @@ Neste tópico, iremos posicionar fisicamente todas as células padrão (standard
 - Otimização de Potência - Redução de consumo.
 
 
-![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/1b0f0b808002eef309745819a88ba86e942b1d08/physical_design/17.png)
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/99166e2f7aa9cdef8379980640686395e8056230/physical_design/22.png)
 
 Figura: Posicionamento das standard cells. Além do posicionamento da célula, a rota de teste foi executada no projeto. 
 
