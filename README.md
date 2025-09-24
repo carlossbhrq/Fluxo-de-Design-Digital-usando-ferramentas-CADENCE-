@@ -104,7 +104,6 @@ Nesta seção, deve-se importar o arquivo netlist, timing constraints, libraries
 2. Para inicializar o software Innovus, utiliza-se o comando **innovus -stylus**;
 3. Após isso, via terminal, faremos a importação de todos os arquivos necessários para iniciarmos o projeto.
   a.**set_db init_read_netlist_files ../physical_design/multiplexor_netlist.v**;
-  b. **set_db design_process_node 45**;
   c.**set_db init_lef_files {../lef/gsclib045_tech.lef ../lef/gsclib045_macro.lef}**;
   d.**set_db init_power_nets VDD**;
   e.**set_db init_ground_nets VSS**;
