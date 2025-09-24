@@ -310,5 +310,38 @@ Isto define o tipo de análise de timing para OCV (On-Chip Variation).
 - Rode os seguintes comandos para verificar violações de timing: **time_design -post_route**
 **time_design -post_route -hold**
 
+![image alt]()
+![image alt]()
+
+As imagens acima comprovam que a análise de timing foi feita com sucesso.
+
+### 5.8 Running Physical Verification
+
+#### 5.8.1 Verifying Geometry
+
+#### 5.8.2 Verifying Connectivity
+
+
+### 5.9 Running Power Analysis 
+
+#### 5.9.1 Viewing Power Analysis Results
+
+
+### 5.10 Filler Cell Placement 
+
+
+### 5.10 Generating a Stream File (GDS/OASIS) 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
