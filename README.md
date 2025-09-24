@@ -255,7 +255,29 @@ Figura: Posicionamento das standard cells. Além do posicionamento da célula, a
 
 
 
+### 5.5 Running Clock Tree Synthesis (CTS)
 
+O CTS é o processo de distribuir o sinal de clock para todos os elementos sequenciais (flip-flops, registradores) do chip de forma sincronizada e balanceada. 
+
+Visto que o design é um multiplexador puramente combinacional sem elementos de clock, podemos pular com segurança a etapa de CTS e ir direto para o routing, economizando tempo e evitando mensagens de erro desnecessárias.
+
+### 5.6 Routing the Nets
+
+Nesta etapa, será realizado o roteamento especial das redes de alimentação VDD e VSS para criar a estrutura de power distribution network (PDN).
+
+1. Acesso à Ferramenta NanoRoute
+- Menu: Route → NanoRoute → NanoRoute
+- No campo Concurrent Routing Features marque selecione **Timing Driven** e **SI Driven** (demais campos devem ficar conforme a imagem abaixo);
+
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/e5a4a8d75f31baa78842801e6afd011ad77ddf1a/physical_design/19.png)
+
+
+- Clique em **OK**. 
+
+
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/e5a4a8d75f31baa78842801e6afd011ad77ddf1a/physical_design/20.png)
+
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/e5a4a8d75f31baa78842801e6afd011ad77ddf1a/physical_design/21.png)
 
 
 
