@@ -276,7 +276,7 @@ Nesta etapa, será realizado o roteamento especial das redes de alimentação VD
 
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/e5a4a8d75f31baa78842801e6afd011ad77ddf1a/physical_design/20.png)
 
-![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/e5a4a8d75f31baa78842801e6afd011ad77ddf1a/physical_design/21.png)
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/8e7baf08c459cf38487bb56131b94caf9e6615a4/physical_design/24.png)
 
 
 ### 5.7 Extraction and Timing Analysis
@@ -298,28 +298,59 @@ Para salvar os parasíticos extraídos em um arquivo SPEF, use:
 
 - **write_parasitics -spef_file multiplexor.spef**
 
+3. Configurar OCV (obrigatório para post-route)
 
-3. Configurar o modo de análise de timing
+set_db timing_analysis_type ocv
 
-- No terminal de comandos, execute **set_db timing_analysis_type ocv**.
+4. Manter a configuração MMMC para corners
 
-Isto define o tipo de análise de timing para OCV (On-Chip Variation).
+set_db timing_analysis_cppr both
 
-4. Executar análise de Setup e Hold
+5.Especificar technology node
+
+set_db design_process_node 45
+
+6. Executar análise de Setup e Hold
 
 - Rode os seguintes comandos para verificar violações de timing: **time_design -post_route**
 **time_design -post_route -hold**
 
-![image alt]()
-![image alt]()
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/624ba8eafc502ef44c9cde55f04a3c70c004fe8f/physical_design/25.png)
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/624ba8eafc502ef44c9cde55f04a3c70c004fe8f/physical_design/26.png)
 
-As imagens acima comprovam que a análise de timing foi feita com sucesso.
+As imagens acima comprovam que a análise de timing foi realizada com sucesso.
 
 ### 5.8 Running Physical Verification
 
 #### 5.8.1 Verifying Geometry
 
+Neste tópico, verificaremos se o layout físico do design atende às regras de fabricação do processo 45nm.
+
+1. Acessar menu Check → Check DRC
+
+2. Manter opções padrão selecionadas
+
+3. Clicar OK para executar a verificação
+
+
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/cc534f3b772dbc9fa10d025531b4df37a70ee1c1/physical_design/27.png)
+
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/cc534f3b772dbc9fa10d025531b4df37a70ee1c1/physical_design/28.png)
+
+
 #### 5.8.2 Verifying Connectivity
+
+Neste tópico, verificaremos a integridade das conexões elétricas no design roteado.
+
+1. Acessar menu Check → Check Connectivity;
+2. Preencha todos os campos conforme a imagem abaixo.
+
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/cc534f3b772dbc9fa10d025531b4df37a70ee1c1/physical_design/29.png)
+
+3. Clicar OK para executar a verificação.
+
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/cc534f3b772dbc9fa10d025531b4df37a70ee1c1/physical_design/30.png)
+
 
 
 ### 5.9 Running Power Analysis 
