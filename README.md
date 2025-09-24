@@ -163,6 +163,45 @@ Na seção, colocam-se pinos de entrada-saída (E/S) ao redor do bloco.
 
 ### 5.3 Power Plannning
 
+Nesta etapa, criam-se os anéis de alimentação (power rings) e trilhas (stripes), visando distribuir os sinais VDD e VSS por todo o chip.
+
+1. Acessar a Ferramenta de Power Planning
+- Menu: Power → Power Planning → Add Ring.
+
+2. Seleção dos Nets de Alimentação
+- No campo Net(s), clique no ícone de pasta 📁;
+- No painel Possible Nets, selecione VDD e VSS (Shift + Click);
+- Clique em Add para mover para Chosen Nets;
+- Clique em OK para confirmar.
+
+3. Ainda na janela **Add Rings**, preecha os campos **Ring Type** e **Ring Configuration** conforme a imagem abaixo.
+ 
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/e9106ddb155d99d9c950c208d487f00d1bb5a31a/physical_design/12.png)
+
+4. Para gerar os **power rings**, clique em **Apply**.
+
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/e9106ddb155d99d9c950c208d487f00d1bb5a31a/physical_design/13.png)
+
+5. Acessar a Ferramenta de Stripes
+- Menu: Power → Power Planning → Add Stripes
+
+6. Ainda na janela **Add Stripes**, preencha os campos **Set Configuration**, **Set Pattern**, **Stripe Boundary** e **First/Last Stripe** conforme a imagem abaixo.
+
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/c3064692ab2dc14d3c327489912a70ba855bc8bc/physical_design/14.png)
+
+8. Para gerar os **power stripes**, clique em **OK**.
+
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/c3064692ab2dc14d3c327489912a70ba855bc8bc/physical_design/15.png)
+Observe que as power stripes e as vias que conectam os rings às stripes são criadas. 
+
+9. Salvar o floorplan;
+- Menu: File → Save → Floorplan
+- Especifique **multiplexor.fp** para o nome do arquivo;
+- Clique em **Save**.
+
+
+### 5.4 Creating Power Rails with Special Route
+
 
 
 
