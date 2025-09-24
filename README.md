@@ -147,7 +147,7 @@ O arquivo multiplexor.view (diretório physical_design) contém ponteiros para b
 1. Para formatarmos o floorplan com as especificações acima, no GUI, selecionamos **Floorplan -> Specify Floorplan**;
 2. Na janela **Specify Floorplan**, preencha os dados conforme a imagem abaixo e clique em **OK**.
 
-![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/25bce1ec51ff808113b88225592119e61db854c6/physical_design/09.png)
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/0a538636906906d3a192ba01a946abd39b099f18/physical_design/09.png)
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/25bce1ec51ff808113b88225592119e61db854c6/physical_design/10.png)
 
 
