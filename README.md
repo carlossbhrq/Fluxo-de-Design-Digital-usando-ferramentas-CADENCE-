@@ -239,7 +239,8 @@ Figura: O Special Route finaliza a distribuição de alimentação, conectando c
 Neste tópico, iremos posicionar fisicamente todas as células padrão (standard cells) dentro do core do chip, otimizando para timing, área, potência e congestionamento.
 
 1. Placement para Design sem DFT 
-- Para designs sem scan chains como o presente projeto, utilizamos o seguinte comando: **place_opt_design**.
+- **read_mmmc multiplexor.view**;
+- **place_opt_design**.
 
 2. O que o place_opt_design realiza?
 - Placement Inicial - Posicionamento global das células;
@@ -247,6 +248,10 @@ Neste tópico, iremos posicionar fisicamente todas as células padrão (standard
 - Otimização de Área - Minimização da área utilizada;
 - Otimização de Potência - Redução de consumo.
 
+
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/1b0f0b808002eef309745819a88ba86e942b1d08/physical_design/17.png)
+
+Figura: Posicionamento das standard cells. Além do posicionamento da célula, a rota de teste foi executada no projeto. 
 
 
 
