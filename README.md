@@ -105,10 +105,11 @@ Nesta seção, deve-se importar o arquivo netlist, timing constraints, libraries
 3. Após isso, via terminal, faremos a importação de todos os arquivos necessários para iniciarmos o projeto.
   a.**set_db init_read_netlist_files ../physical_design/multiplexor_netlist.v**;
   b. **set_db design_process_node 45**;
-  b.**set_db init_lef_files {../lef/gsclib045_tech.lef ../lef/gsclib045_macro.lef}**;
-  c.**set_db init_power_nets VDD**;
-  d.**set_db init_ground_nets VSS**;
-  e.**set_db init_mmmc_files multiplexor.view**;
+  c.**set_db init_lef_files {../lef/gsclib045_tech.lef ../lef/gsclib045_macro.lef}**;
+  d.**set_db init_power_nets VDD**;
+  e.**set_db init_ground_nets VSS**;
+  f.**set_db init_mmmc_files multiplexor.view**;
+  g. **read_mmmc multiplexor.view"**
   f.**read_physical -lefs {../lef/gsclib045_tech.lef ../lef/gsclib045_macro.lef}**;
   g.**read_netlist ../physical_design/multiplexor_netlist.v -top multiplexor**;
   f.**init_design**.
@@ -280,8 +281,36 @@ Nesta etapa, será realizado o roteamento especial das redes de alimentação VD
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/e5a4a8d75f31baa78842801e6afd011ad77ddf1a/physical_design/21.png)
 
 
+### 5.7 Extraction and Timing Analysis
+
+Nesta estapa, realizaremos processo de extração de parasíticos (RC Extraction) e análise de timing (Setup e Hold) após o roteamento do design.
+
+1. Executar a Extração RC
+
+No shell do Innovus, rode o comando:
+
+- **extract_rc**
+
+Esse comando realiza a extração de resistências e capacitâncias parasíticas sobre o design já roteado.
 
 
+2. Exportar SPEF
+
+Para salvar os parasíticos extraídos em um arquivo SPEF, use:
+
+- **write_parasitics -spef_file multiplexor.spef**
+
+
+3. Configurar o modo de análise de timing
+
+- No terminal de comandos, execute **set_db timing_analysis_type ocv**.
+
+Isto define o tipo de análise de timing para OCV (On-Chip Variation).
+
+4. Executar análise de Setup e Hold
+
+- Rode os seguintes comandos para verificar violações de timing: **time_design -post_route**
+**time_design -post_route -hold**
 
 
 
