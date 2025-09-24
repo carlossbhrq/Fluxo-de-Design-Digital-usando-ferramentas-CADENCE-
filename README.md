@@ -265,7 +265,7 @@ Visto que o design é um multiplexador puramente combinacional sem elementos de 
 Nesta etapa, será realizado o roteamento especial das redes de alimentação VDD e VSS para criar a estrutura de power distribution network (PDN).
 
 1. Acesso à Ferramenta NanoRoute
-- Menu: Route → NanoRoute → NanoRoute
+- Menu: Route → NanoRoute → Route
 - No campo Concurrent Routing Features marque selecione **Timing Driven** e **SI Driven** (demais campos devem ficar conforme a imagem abaixo);
 
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/e5a4a8d75f31baa78842801e6afd011ad77ddf1a/physical_design/19.png)
