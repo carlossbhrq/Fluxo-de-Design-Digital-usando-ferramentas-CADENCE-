@@ -1,4 +1,4 @@
-t#rtl-to-gdsii-multiplexer-cadence-gpdk45
+## Introdução: 
 Este repositório documenta a implementação completa do fluxo RTL-to-GDSII para um circuito multiplexador (MUX), utilizando a suíte de ferramentas Cadence e a tecnologia de 45 nm do PDK padrão da Cadence (GPDK 045). O projeto abrange todas as etapas do design digital, desde a descrição do hardware em Verilog/VDHL até a geração do layout físico final (GDSII), passando por síntese, placement, roteamento e verificação. O objetivo é servir como um guia prático e referência para o desenvolvimento de circuitos integrados digitais com essas ferramentas.
 
 
