@@ -355,15 +355,115 @@ Neste tópico, verificaremos a integridade das conexões elétricas no design ro
 
 ### 5.9 Running Power Analysis 
 
+Neste tópico, realizaremos a análise estática de consumo de potência do design multiplexor.
+
+1. Acessar Menu: Power → Power Analysis → Setup;
+2. Preencha a janela Set Power Analysis Mode conforme a imagem abaixo.
+
+![image alt]()
+
+3. Clique em OK;
+4. Via terminal, digite **source power.tcl**, para carregar as regras de power;
+5. Para iniciar o processo de análise de power, acesse Menu: Power → Power Analysis → Run;
+6. Preencha a janela Run Power Analysis conforme a imagem abaixo;
+
+![image alt]()
+
+7. Clique em OK.
+
+![image alt]()
+
+
+8. Para iniciar a Rail Analysis, acesse Menu: Power → Rail Analysis → Setup;
+9. Preencha a janela Set Rail Analysis Mode conforme a imagem abaixo;
+
+![image alt]()
+
+10. Clique em OK;
+11. Acesse Menu: Power → Rail Analysis → Run;
+12. Preencha a janela Run Rail Analysis conforme a imagem abaixo;
+
+![image alt]()
+
+13. Clique em Create;
+14. Preencha a janela Edit Pad Location conforme a imagem abaixo;
+- Para preencher o Pad Location List, deve-se clicar em Get Coord e depois clicar em algum local da janela de projeto do Innovus, como por exemplo locais com rings de power existentes.
+- Em seguida, clique em Add;
+- Clique em Save;
+- Salve como multiplexor.pp;
+- Clique em Cancel para fechar a janela Edit Pad Location;
+
+![image alt]()
+
+![image alt]()
+
+15. De volta a janela Run Rail Analysis, preencha o campo File com multiplexor.pp e o campo Net Name com VDD, em seguida clique em ADD;
+16. Preencha o campo Results Directory com ./run1;
+17. A janela Run Rail Analysis deve ser preenchida conforme a imagem abaixo. 
+
+![image alt]()
+
+17. CLique em OK. 
+
+
 #### 5.9.1 Viewing Power Analysis Results
+
+Neste subtópico, iremos visualizar e analisar os resultados de Power e Rail. 
+
+1. Carregamento dos Resultados da Análise
+- read_power_rail_results -power_db run1/power.db -rail_directory run1/VDD_25C_avg_2
+  
+2. Acesso à Interface de Resultados
+- Menu: Power → Report → Power Rail Result
+- Double-click no ícone para abrir o Power Rail Plot
+
+![image alt]()
+
+3. Configuração da Visualização Rail Analysis
+
+- No painel esquerdo Power Rail Plot, selecionar Rail;
+- No dropdown, selecionar ir – IR Drop.
+- Ajustar parâmetros de visualização conforme necessário
+
+![image alt]()
 
 
 ### 5.10 Filler Cell Placement 
 
+Neste tópico, iremos preencher espaços vazios no layout com células de preenchimento (filler cells) para:
+
+- Garantir continuidade do well e implant layers
+- Prevenir latch-up e problemas de fabricação
+- Manter continuidade de power rails
+- Assegurar DRC-clean layout
+
+1. Clique em Menu: Place → Physical Cell → Add Filler;
+2. Na janela Add Filler
+- Clique em Select no campo Cell Name(s);
+- Selecione as Cells FILL8, FILL64, FILL4, FILL32, FILL2, FILL16, FILL1;
+- Clique em Add;
+- Clique em Close;
+
+![image alt]()
+
+-Clique em OK para iniciar a colocação das células de preenchimento. 
+
+![image alt]()
+
 
 ### 5.10 Generating a Stream File (GDS/OASIS) 
 
+Nesta última etapa, iremos gerar arquivo GDSII (Stream File) para entrega à foundry para fabricação do chip.
 
+1. Clique em Menu: File → Save → GDS/OASIS;
+2. Na janela GDS/OASIS Export
+- Preencha o campo Output file com o nome do arquivo GDSII (nesse caso, multiplexor.gds);
+
+![image alt]()
+
+3. Clique em OK.
+4. Por fim, feche o software Innovus.
+- Para isso, digite o comando exit. 
 
 
 
