@@ -1,11 +1,14 @@
-t# Fluxo-de-Design-Digital-usando-ferramentas-CADENCE
-Este repositório documenta detalhadamente as etapas referentes ao fluxo de design digital utilizando as ferramentas CADENCE para um multiplexador. 
+t# rtl-to-gdsii-multiplexer-cadence-gpdk45
+Este repositório documenta a implementação completa do fluxo RTL-to-GDSII para um circuito multiplexador (MUX), utilizando a suíte de ferramentas Cadence e a tecnologia de 45 nm do PDK padrão da Cadence (GPDK 045). O projeto abrange todas as etapas do design digital, desde a descrição do hardware em Verilog/VDHL até a geração do layout físico final (GDSII), passando por síntese, placement, roteamento e verificação. O objetivo é servir como um guia prático e referência para o desenvolvimento de circuitos integrados digitais com essas ferramentas.
+
+
 
 ## 1. Especificações: 
 
 - A largura do MUX é parametrizada com o valor padrão de 5;
 - Se sel for 1'b0, a entrada in0 é passada para a saída mux_out;
 - Se sel for 1'b0, a entrada in0 é passada para a saída mux_out. 
+
 
 
 ## 2. Projeto de arquitetura: 
@@ -15,9 +18,11 @@ Este repositório documenta detalhadamente as etapas referentes ao fluxo de desi
 *Figura: Multiplexador 2:1 com entradas in0, in1, seletor sel e saída mux_out*
 
 
+
 ## 3. Projeto RTL:
 
 - Nessa etapa, foi criado em linguagem Verilog o arquivo multiplexor.v, responsável por descrever o comportamento do multiplexador.
+
 
 
 ## 4. Verificação RTL:
@@ -26,17 +31,18 @@ Este repositório documenta detalhadamente as etapas referentes ao fluxo de desi
 - Por meio do código "xrun multiplexor.v multiplexor_test.v", verifica-se o projeto do multiplexador (projetado com sucesso, conforme as imagems abaixo);
 
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/22f04cabce257a526264cb800d31cf1b0474e4be/01.png)
+
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/22f04cabce257a526264cb800d31cf1b0474e4be/02.png)
 
 - Pode-se também acessar o SimVision por meio do código "xrun multiplexor.v multiplexor_test.v -gui -access +rwc" para vizualizar os resultados da simulação (conforme ilustra as imagens a abaixo).
 
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/22f04cabce257a526264cb800d31cf1b0474e4be/03.png)
+
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/22f04cabce257a526264cb800d31cf1b0474e4be/04.png)
 
 
+
 ## 5. Síntese: 
-
-
 ### 5.1 Criando o script para execução. 
 
 Dentro do diretório "Síntese", cria-se o arquivo de script "genus_scrip_muxtiplexor.tcl", que contém entradas necessárias para a realização da síntese como RTL, biblioteca de células padrão e restrições (constraints).
@@ -47,6 +53,7 @@ O script `genus_script_multiplexor.tcl` realiza:
 2. **Síntese** do RTL para netlist otimizada; 
 3. **Geração** de relatórios de qualidade;
 4. **Exportação** dos resultados para P&R.
+
 
 
 ### 5.2 Restrições de tempo ou arquivo SDC. 
@@ -63,6 +70,7 @@ Função: Modela a força de acionamento (drive strength) dos sinais de entrada.
 
 3. ***set_load 0.05 [all_outputs]***
 Função: Define a carga capacitiva que a saída do circuito deve acionar.
+
 
 
 ### 5.2 Iniciando o Genus 
@@ -89,12 +97,11 @@ Função: Define a carga capacitiva que a saída do circuito deve acionar.
 *Figura: Print do terminal do Genus pós-síntese.*
 
 
-
 3. Para fechar o Genus, utiliza-se o comando **exit**.
 
 
-## 5. Implementação: 
 
+## 5. Implementação: 
 
 ### 5.1 Importando o projeto. 
 
@@ -103,15 +110,16 @@ Nesta seção, deve-se importar o arquivo netlist, timing constraints, libraries
 1. Dentro do diretório ***physical_design***, abre-se o terminal de comando;
 2. Para inicializar o software Innovus, utiliza-se o comando **innovus -stylus**;
 3. Após isso, via terminal, faremos a importação de todos os arquivos necessários para iniciarmos o projeto.
-  a.**set_db init_read_netlist_files ../physical_design/multiplexor_netlist.v**;
-  c.**set_db init_lef_files {../lef/gsclib045_tech.lef ../lef/gsclib045_macro.lef}**;
-  d.**set_db init_power_nets VDD**;
-  e.**set_db init_ground_nets VSS**;
-  f.**set_db init_mmmc_files multiplexor.view**;
-  g. **read_mmmc multiplexor.view"**
-  f.**read_physical -lefs {../lef/gsclib045_tech.lef ../lef/gsclib045_macro.lef}**;
-  g.**read_netlist ../physical_design/multiplexor_netlist.v -top multiplexor**;
-  f.**init_design**.
+- **set_db init_read_netlist_files ../physical_design/multiplexor_netlist.v**;
+- **set_db init_lef_files {../lef/gsclib045_tech.lef ../lef/gsclib045_macro.lef}**;
+- **set_db init_power_nets VDD**;
+- **set_db init_ground_nets VSS**;
+- **set_db init_mmmc_files multiplexor.view**;
+- **read_mmmc multiplexor.view"**
+- **read_physical -lefs {../lef/gsclib045_tech.lef ../lef/gsclib045_macro.lef}**;
+- **read_netlist ../physical_design/multiplexor_netlist.v -top multiplexor**;
+- **init_design**.
+
 5. Por fim, podemos visualizar os resultados da importação do projeto no GUI do Innovus, selecionando **Floorplan view** e depois **Tools - Design Browser**.
 
 
@@ -138,6 +146,7 @@ O arquivo multiplexor.view (diretório physical_design) contém ponteiros para b
 - Tecnologia QRC para extração RC
 
 
+
 ### 5.2 Floorplannning the Design 
 
 **Parâmetros utilizados:**
@@ -149,17 +158,20 @@ O arquivo multiplexor.view (diretório physical_design) contém ponteiros para b
 2. Na janela **Specify Floorplan**, preencha os dados conforme a imagem abaixo e clique em **OK**.
 
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/0a538636906906d3a192ba01a946abd39b099f18/physical_design/09.png)
+
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/25bce1ec51ff808113b88225592119e61db854c6/physical_design/10.png)
+
 
 
 ### 5.3 Pin Assignment 
 
 Na seção, colocam-se pinos de entrada-saída (E/S) ao redor do bloco. 
-1. Para posicionar todos os pinos E/S, utilizaremos o arquivo **mux_pins.io**, que contém a configuração física dos pinos do design. Assim, faz-se a leitura do arquivo através do comando **read_io_file mux_pins.io**;
 
+1. Para posicionar todos os pinos E/S, utilizaremos o arquivo **mux_pins.io**, que contém a configuração física dos pinos do design. Assim, faz-se a leitura do arquivo através do comando **read_io_file mux_pins.io**;
 2. Em seguida, atualiza-se a tela usando o botão de redesenho e visualize o posicionamento dos pinos na janela de design.
 
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/0cd3799d5a407d1e64bc80243b30647da71620d4/physical_design/11.png)
+
 
 
 ### 5.3 Power Plannning
@@ -179,9 +191,11 @@ Nesta etapa, criam-se os anéis de alimentação (power rings) e trilhas (stripe
  
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/e9106ddb155d99d9c950c208d487f00d1bb5a31a/physical_design/12.png)
 
+
 4. Para gerar os **power rings**, clique em **Apply**.
 
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/e9106ddb155d99d9c950c208d487f00d1bb5a31a/physical_design/13.png)
+
 
 5. Acessar a Ferramenta de Stripes
 - Menu: Power → Power Planning → Add Stripes
@@ -190,16 +204,19 @@ Nesta etapa, criam-se os anéis de alimentação (power rings) e trilhas (stripe
 
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/c3064692ab2dc14d3c327489912a70ba855bc8bc/physical_design/14.png)
 
+
 8. Para gerar os **power stripes**, clique em **OK**.
 
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/c3064692ab2dc14d3c327489912a70ba855bc8bc/physical_design/15.png)
 
-Observe que as power stripes e as vias que conectam os rings às stripes são criadas. 
+Figura: Observe que as power stripes e as vias que conectam os rings às stripes são criadas. 
+
 
 9. Salvar o floorplan;
 - Menu: File → Save → Floorplan
 - Especifique **multiplexor.fp** para o nome do arquivo;
 - Clique em **Save**.
+
 
 
 ### 5.4 Creating Power Rails with Special Route
@@ -234,6 +251,7 @@ Neste tópico, iremos conectar os pinos de alimentação das células padrão (s
 Figura: O Special Route finaliza a distribuição de alimentação, conectando cada célula individual à malha de power global criada anteriormente.
 
 
+
 ### 5.4 Running Placement Optimization
 
 Neste tópico, iremos posicionar fisicamente todas as células padrão (standard cells) dentro do core do chip, otimizando para timing, área, potência e congestionamento.
@@ -260,6 +278,8 @@ O CTS é o processo de distribuir o sinal de clock para todos os elementos seque
 
 Visto que o design é um multiplexador puramente combinacional sem elementos de clock, podemos pular com segurança a etapa de CTS e ir direto para o routing, economizando tempo e evitando mensagens de erro desnecessárias.
 
+
+
 ### 5.6 Routing the Nets
 
 Nesta etapa, será realizado o roteamento especial das redes de alimentação VDD e VSS para criar a estrutura de power distribution network (PDN).
@@ -277,6 +297,7 @@ Nesta etapa, será realizado o roteamento especial das redes de alimentação VD
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/e5a4a8d75f31baa78842801e6afd011ad77ddf1a/physical_design/20.png)
 
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/8e7baf08c459cf38487bb56131b94caf9e6615a4/physical_design/24.png)
+
 
 
 ### 5.7 Extraction and Timing Analysis
@@ -300,25 +321,28 @@ Para salvar os parasíticos extraídos em um arquivo SPEF, use:
 
 3. Configurar OCV (obrigatório para post-route)
 
-set_db timing_analysis_type ocv
+- **set_db timing_analysis_type ocv**
 
 4. Manter a configuração MMMC para corners
 
-set_db timing_analysis_cppr both
+- **set_db timing_analysis_cppr both**
 
 5.Especificar technology node
 
-set_db design_process_node 45
+- **set_db design_process_node 45**
 
 6. Executar análise de Setup e Hold
 
-- Rode os seguintes comandos para verificar violações de timing: **time_design -post_route**
-**time_design -post_route -hold**
+- **time_design -post_route**
+- **time_design -post_route -hold**
 
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/624ba8eafc502ef44c9cde55f04a3c70c004fe8f/physical_design/25.png)
+
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/624ba8eafc502ef44c9cde55f04a3c70c004fe8f/physical_design/26.png)
 
 As imagens acima comprovam que a análise de timing foi realizada com sucesso.
+
+
 
 ### 5.8 Running Physical Verification
 
@@ -327,15 +351,14 @@ As imagens acima comprovam que a análise de timing foi realizada com sucesso.
 Neste tópico, verificaremos se o layout físico do design atende às regras de fabricação do processo 45nm.
 
 1. Acessar menu Check → Check DRC
-
 2. Manter opções padrão selecionadas
-
 3. Clicar OK para executar a verificação
 
 
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/cc534f3b772dbc9fa10d025531b4df37a70ee1c1/physical_design/27.png)
 
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/cc534f3b772dbc9fa10d025531b4df37a70ee1c1/physical_design/28.png)
+
 
 
 #### 5.8.2 Verifying Connectivity
@@ -346,6 +369,7 @@ Neste tópico, verificaremos a integridade das conexões elétricas no design ro
 2. Preencha todos os campos conforme a imagem abaixo.
 
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/cc534f3b772dbc9fa10d025531b4df37a70ee1c1/physical_design/29.png)
+
 
 3. Clicar OK para executar a verificação.
 
@@ -362,12 +386,14 @@ Neste tópico, realizaremos a análise estática de consumo de potência do desi
 
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/087190eb88cec2871eda035f42a62cf4452c5744/physical_design/31.png)
 
+
 3. Clique em OK;
 4. Via terminal, digite **source power.tcl**, para carregar as regras de power;
 5. Para iniciar o processo de análise de power, acesse Menu: Power → Power Analysis → Run;
 6. Preencha a janela Run Power Analysis conforme a imagem abaixo;
 
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/ed6abb1d1e0863facacd039aa250d9a3ec9810a0/physical_design/32.png)
+
 
 7. Clique em OK.
 
@@ -379,11 +405,13 @@ Neste tópico, realizaremos a análise estática de consumo de potência do desi
 
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/415897a148b42a35b7e84361549f34fd9b0b1a7d/physical_design/34.png)
 
+
 10. Clique em OK;
 11. Acesse Menu: Power → Rail Analysis → Run;
 12. Preencha a janela Run Rail Analysis conforme a imagem abaixo;
 
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/089581db0de022fd3f56726cf8bed647c2d505f3/physical_design/36.png)
+
 
 13. Clique em Create;
 14. Preencha a janela Edit Pad Location conforme a imagem abaixo;
@@ -393,8 +421,8 @@ Neste tópico, realizaremos a análise estática de consumo de potência do desi
 - Salve como multiplexor.pp;
 - Clique em Cancel para fechar a janela Edit Pad Location;
 
-
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/6c085bfee3b04bff4cd91fc0264691ad11b95b32/physical_design/38.png)
+
 
 15. De volta a janela Run Rail Analysis, preencha o campo File com multiplexor.pp e o campo Net Name com VDD, em seguida clique em ADD;
 16. Preencha o campo Results Directory com ./run1;
@@ -402,9 +430,12 @@ Neste tópico, realizaremos a análise estática de consumo de potência do desi
 
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/247d1d30d3cda08f23675aad0b4e884748d03cbf/physical_design/42.png)
 
+
 17. CLique em OK. 
 
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/296e4f05b836b065cc8354f0042eafab532baf2d/physical_design/43.png)
+
+
 
 #### 5.9.1 Viewing Power Analysis Results
 
@@ -425,6 +456,7 @@ Neste subtópico, iremos visualizar e analisar os resultados de Power e Rail.
 - Ajustar parâmetros de visualização conforme necessário. 
 
 ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/a03898bbd5a1b9d399f829aa2cd611bf88c59601/physical_design/45.png)
+
 
 
 ### 5.10 Filler Cell Placement 
