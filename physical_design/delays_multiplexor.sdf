@@ -1,0 +1,83 @@
+(DELAYFILE
+  (SDFVERSION  "OVI 3.0")
+  (DESIGN      "multiplexor")
+  (DATE        "Tue Sep 23 16:20:49 -03 2025")
+  (VENDOR      "Cadence, Inc.")
+  (PROGRAM     "Genus(TM) Synthesis Solution")
+  (VERSION     "21.17-s066_1")
+  (DIVIDER     .)
+  (VOLTAGE     ::0.9)
+  (PROCESS     "::1.0")
+  (TEMPERATURE ::125.0)
+  (TIMESCALE   1ns)
+  (CELL
+     (CELLTYPE "CLKMX2X6")
+     (INSTANCE g136__2398)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.000))
+          (PORT B (::0.000))
+          (PORT S0 (::0.000))
+          (IOPATH A Y (::0.352) (::0.348))
+          (IOPATH B Y (::0.350) (::0.352))
+          (IOPATH S0 Y (::0.379) (::0.382))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "CLKMX2X6")
+     (INSTANCE g140__5107)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.000))
+          (PORT B (::0.000))
+          (PORT S0 (::0.000))
+          (IOPATH A Y (::0.352) (::0.348))
+          (IOPATH B Y (::0.350) (::0.352))
+          (IOPATH S0 Y (::0.379) (::0.382))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "CLKMX2X6")
+     (INSTANCE g137__6260)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.000))
+          (PORT B (::0.000))
+          (PORT S0 (::0.000))
+          (IOPATH A Y (::0.352) (::0.348))
+          (IOPATH B Y (::0.350) (::0.352))
+          (IOPATH S0 Y (::0.379) (::0.382))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "CLKMX2X6")
+     (INSTANCE g138__4319)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.000))
+          (PORT B (::0.000))
+          (PORT S0 (::0.000))
+          (IOPATH A Y (::0.352) (::0.348))
+          (IOPATH B Y (::0.350) (::0.352))
+          (IOPATH S0 Y (::0.379) (::0.382))
+        )
+     )
+  )
+  (CELL
+     (CELLTYPE "CLKMX2X6")
+     (INSTANCE g139__8428)
+     (DELAY
+        (ABSOLUTE
+          (PORT A (::0.000))
+          (PORT B (::0.000))
+          (PORT S0 (::0.000))
+          (IOPATH A Y (::0.352) (::0.348))
+          (IOPATH B Y (::0.350) (::0.352))
+          (IOPATH S0 Y (::0.379) (::0.382))
+        )
+     )
+  )
+)
