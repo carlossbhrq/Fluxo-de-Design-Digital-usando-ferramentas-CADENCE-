@@ -360,30 +360,30 @@ Neste tópico, realizaremos a análise estática de consumo de potência do desi
 1. Acessar Menu: Power → Power Analysis → Setup;
 2. Preencha a janela Set Power Analysis Mode conforme a imagem abaixo.
 
-![image alt]()
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/087190eb88cec2871eda035f42a62cf4452c5744/physical_design/31.png)
 
 3. Clique em OK;
 4. Via terminal, digite **source power.tcl**, para carregar as regras de power;
 5. Para iniciar o processo de análise de power, acesse Menu: Power → Power Analysis → Run;
 6. Preencha a janela Run Power Analysis conforme a imagem abaixo;
 
-![image alt]()
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/ed6abb1d1e0863facacd039aa250d9a3ec9810a0/physical_design/32.png)
 
 7. Clique em OK.
 
-![image alt]()
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/0ea79b2da12b1d187e87ad313b4e9631101c6b1f/physical_design/33.png)
 
 
 8. Para iniciar a Rail Analysis, acesse Menu: Power → Rail Analysis → Setup;
 9. Preencha a janela Set Rail Analysis Mode conforme a imagem abaixo;
 
-![image alt]()
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/415897a148b42a35b7e84361549f34fd9b0b1a7d/physical_design/34.png)
 
 10. Clique em OK;
 11. Acesse Menu: Power → Rail Analysis → Run;
 12. Preencha a janela Run Rail Analysis conforme a imagem abaixo;
 
-![image alt]()
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/089581db0de022fd3f56726cf8bed647c2d505f3/physical_design/36.png)
 
 13. Clique em Create;
 14. Preencha a janela Edit Pad Location conforme a imagem abaixo;
@@ -393,18 +393,18 @@ Neste tópico, realizaremos a análise estática de consumo de potência do desi
 - Salve como multiplexor.pp;
 - Clique em Cancel para fechar a janela Edit Pad Location;
 
-![image alt]()
 
-![image alt]()
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/6c085bfee3b04bff4cd91fc0264691ad11b95b32/physical_design/38.png)
 
 15. De volta a janela Run Rail Analysis, preencha o campo File com multiplexor.pp e o campo Net Name com VDD, em seguida clique em ADD;
 16. Preencha o campo Results Directory com ./run1;
 17. A janela Run Rail Analysis deve ser preenchida conforme a imagem abaixo. 
 
-![image alt]()
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/247d1d30d3cda08f23675aad0b4e884748d03cbf/physical_design/42.png)
 
 17. CLique em OK. 
 
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/296e4f05b836b065cc8354f0042eafab532baf2d/physical_design/43.png)
 
 #### 5.9.1 Viewing Power Analysis Results
 
@@ -415,17 +415,16 @@ Neste subtópico, iremos visualizar e analisar os resultados de Power e Rail.
   
 2. Acesso à Interface de Resultados
 - Menu: Power → Report → Power Rail Result
-- Double-click no ícone para abrir o Power Rail Plot
+- Double-click no ícone ![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/8478f24decfa3d9c894a2b9328398c14baebc766/physical_design/44.1.png) para abrir o Power Rail Plot.
 
-![image alt]()
 
 3. Configuração da Visualização Rail Analysis
 
 - No painel esquerdo Power Rail Plot, selecionar Rail;
-- No dropdown, selecionar ir – IR Drop.
-- Ajustar parâmetros de visualização conforme necessário
+- No dropdown, selecionar ir – IR Drop;
+- Ajustar parâmetros de visualização conforme necessário. 
 
-![image alt]()
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/a03898bbd5a1b9d399f829aa2cd611bf88c59601/physical_design/45.png)
 
 
 ### 5.10 Filler Cell Placement 
@@ -443,12 +442,11 @@ Neste tópico, iremos preencher espaços vazios no layout com células de preenc
 - Selecione as Cells FILL8, FILL64, FILL4, FILL32, FILL2, FILL16, FILL1;
 - Clique em Add;
 - Clique em Close;
-
-![image alt]()
-
 -Clique em OK para iniciar a colocação das células de preenchimento. 
 
-![image alt]()
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/c9e6592a5dd1a0bca46a1b80dfabda24271bfa46/physical_design/46.png)
+
+Figura: Pós colocação das células de preenchimento. 
 
 
 ### 5.10 Generating a Stream File (GDS/OASIS) 
@@ -459,7 +457,7 @@ Nesta última etapa, iremos gerar arquivo GDSII (Stream File) para entrega à fo
 2. Na janela GDS/OASIS Export
 - Preencha o campo Output file com o nome do arquivo GDSII (nesse caso, multiplexor.gds);
 
-![image alt]()
+![image alt](https://github.com/carlossbhrq/Fluxo-de-Design-Digital-usando-ferramentas-CADENCE-/blob/c9e6592a5dd1a0bca46a1b80dfabda24271bfa46/physical_design/47.png)
 
 3. Clique em OK.
 4. Por fim, feche o software Innovus.
